@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const port = process.env.PORT || 5000;
+const port =  process.env.PORT || 5000;
 
-const chefsData = require('./data/chefs.json');
+const chefsData = require('./store/chefs.json');
 
 app.use(cors());
 
@@ -19,7 +19,7 @@ app.get('/chef/:id',(req,res)=>{
 
     const id = req.params.id;
     
-    const selectedChef = chefsData.find(data => data.chef_id === parseInt(id));
+    const selectedChef = chefsData.find(data => data.chef_id === parseInt(id) );
 
     res.send(selectedChef);
 })
